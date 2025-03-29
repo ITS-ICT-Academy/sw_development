@@ -1,0 +1,49 @@
+services:
+  dev:
+    tty: true
+    build: ./dev
+    container_name: ${COMPOSE_PROJECT_NAME}_dev
+    volumes:
+      - ${CODE}:/home/code
+      - ${DATA}:/home/data
+    networks:
+      - network
+    restart: unless-stopped
+
+  postgresql:
+    build: ./postgresql
+    container_name: ${COMPOSE_PROJECT_NAME}_postgresql
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - ${POSTGRESQL_EXPOSED_PORT}:5432
+    volumes:
+      - ${DATA}/internal_data/postgresql:/var/lib/postgresql/data
+      - ${DATA}:/data
+    networks:
+      - network
+    restart: unless-stopped
+
+  pgadmin:
+    container_name: ${COMPOSE_PROJECT_NAME}_pgadmin
+    image: dpage/pgadmin4:latest
+    user: root
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-admin@pgadmin.org}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-admin}
+    volumes:
+       - ${DATA}/internal_data/pg_admin:/var/lib/pgadmin # to choose your personal directory, change only the left path.
+    ports:
+      - "${PGADMIN_EXPOSED_PORT}:80"  
+    networks:
+      - network
+    restart: unless-stopped
+
+volumes:
+  python:
+
+networks:
+  network: 
+    driver: bridge
