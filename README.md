@@ -66,9 +66,9 @@ La cartella `data`, che contiene i dati di interesse, sarà accessibile, dall'in
 
 Per terminare i container, basterà eseguire il seguente comando:
 
-    ```
-    docker compose down
-    ```
+```
+docker compose down
+```
 
 
 
