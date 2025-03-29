@@ -1,15 +1,15 @@
 import os
-import pandas as pd
 
-from sklearn.preprocessing import StandardScaler, LabelEncoder
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.linear_model import LogisticRegression
-from sklearn.svm import SVC
-from sklearn.tree import DecisionTreeClassifier
-from sklearn.neighbors import KNeighborsClassifier
-from sklearn.naive_bayes import GaussianNB
-from sklearn.metrics import accuracy_score, classification_report
-from sklearn.model_selection import KFold
+#import pandas as pd
+# from sklearn.preprocessing import StandardScaler, LabelEncoder
+# from sklearn.ensemble import RandomForestClassifier
+# from sklearn.linear_model import LogisticRegression
+# from sklearn.svm import SVC
+# from sklearn.tree import DecisionTreeClassifier
+# from sklearn.neighbors import KNeighborsClassifier
+# from sklearn.naive_bayes import GaussianNB
+# from sklearn.metrics import accuracy_score, classification_report
+# from sklearn.model_selection import KFold
 
 import psycopg
 
