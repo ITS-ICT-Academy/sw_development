@@ -15,8 +15,6 @@ Lanciare da terminale il seguente comando (dalla directory che contiene il file 
 docker compose up --build -d
 ```
 
-L'opzione `--build` può essere evitata se non si sono effettuate modifiche ai file di configurazione dei container dall'ultimo avvio. Senza l'opzione `--build` l'avvio sarà molto più rapido.
-
 # Container avviati #
 
 Verranno avviati i seguenti container:
@@ -48,10 +46,10 @@ La sotto-cartella `data/internal_data` verrà invece popolata dai container con 
 
 # Esecuzione di codice Python #
 
-Per eseguire il vostro codice Python, basterà lanciare il seguente comando:
+Per eseguire il programma Python presente nel file `code/path/to/subfolder/nome_file.py`, basterà lanciare il seguente comando:
 
 ```
-docker exec -it its_dev python nome_file.py [OPTIONS]
+docker exec -it -w /home/code/path/to/subfolder its_dev python nome_file.py [OPTIONS]
 ```
 
 sostituendo a `nome_file.py` il nome del file Python (nella directory `code`) che volete eseguire, ed aggiungere eventuali opzioni da riga di comando.
@@ -60,6 +58,11 @@ Il comando `python nome_file.py [OPTIONS]` verrà eseguito all'interno del conta
 
 La cartella `data`, che contiene i dati di interesse, sarà accessibile, dall'interno del container, al percorso `/home/data`.
 
+Ad esempio, per eseguire il programma `code/test/main.py`, basterà lanciare il comando:
+
+```
+docker exec -it -w /home/code/test its_dev python main.py
+```
 
 
 # Terminare i container #
