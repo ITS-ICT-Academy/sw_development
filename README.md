@@ -50,9 +50,9 @@ La sotto-cartella `data/internal_data` verrà invece popolata dai container con 
 
 Per eseguire il vostro codice Python, basterà lanciare il seguente comando:
 
-    ```
-    docker exec -it its_dev python nome_file.py [OPTIONS]
-    ```
+```
+docker exec -it its_dev python nome_file.py [OPTIONS]
+```
 
 sostituendo a `nome_file.py` il nome del file Python (nella directory `code`) che volete eseguire, ed aggiungere eventuali opzioni da riga di comando.
 
