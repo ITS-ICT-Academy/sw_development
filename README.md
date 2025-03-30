@@ -88,7 +88,7 @@ f08940bf14c2   its-postgresql          "docker-entrypoint.s…"   47 seconds ago
 4bfb833bc083   its-dev                 "python3"                47 seconds ago   Up 47 seconds                                   its_dev
 ```
 
-# Directory di servizio #
+# Persistenza dei dati #
 
 Al primo avvio, il comando `docker compose up ...` creerà due volumi: `sw_development_config_postgresql` e `sw_development_config_pgadmin`. Questi conterranno, rispettivamente, i database di PostgreSQL ed i file di configurazione di PGAdmin. 
 
@@ -132,7 +132,7 @@ Per terminare i container, basterà eseguire il seguente comando:
 docker compose down
 ```
 
-Il contenuto delle cartelle `USER_BASE_FOLDER` e `internal_data` resterà invariato tra una esecuzione dei container e l'altra.
+Il contenuto della cartella `USER_BASE_FOLDER` resterà invariato tra una esecuzione dei container e l'altra.
 
 
 ### Autori ###
