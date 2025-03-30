@@ -40,7 +40,7 @@ services:
       PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-admin@pgadmin.org}
       PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-admin}
     volumes:
-       - sw_development_config_pdgadmin:/var/lib/pgadmin # to choose your personal directory, change only the left path.
+       - sw_development_config_pgadmin:/var/lib/pgadmin # to choose your personal directory, change only the left path.
        - ${USER_BASE_FOLDER}:/home/
     ports:
       - "${PGADMIN_EXPOSED_PORT}:80"  
@@ -50,7 +50,7 @@ services:
 
 volumes:
   sw_development_config_postgresql:
-  sw_development_config_pdgadmin:
+  sw_development_config_pgadmin:
 
 networks:
   network: 
