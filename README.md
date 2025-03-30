@@ -17,12 +17,16 @@ Clonare il repository in una directory locale.
 cp .env_example .env
 ```
 
-3. Aprire il file `.env` con un file di testo e modificare la stringa assegnata alla variabile `USER_BASE_FOLDER` con il percorso assoluto della directory radice dove è presente il proprio codice e dati che si vogliono rendere disponibili ai container. Ad esempio:
+3. Aprire il file `.env` con un file di testo e modificare 
+
+   1. la stringa assegnata alla variabile `USER_BASE_FOLDER` con il percorso assoluto della directory radice dove è presente il proprio codice e dati che si vogliono rendere disponibili ai container. Ad esempio:
+   2. la stringa assegnata alla variabile `PYTHON_PIP_REQUIREMENTS` con il percorso assoluto al file che contiene la lista dei pacchetti python da installare secondo la sintassi pip. Attenzione: il file deve essere all'interno della cartella `USER_BASE_FOLDER`
 
 ```
 # File .env
 ...
 USER_BASE_FOLDER=~/Documents/its
+PYTHON_PIP_REQUIREMENTS=${USER_BASE_FOLDER}/python_requirements.txt 
 ...
 ```
 
