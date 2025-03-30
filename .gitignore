@@ -5,6 +5,7 @@
 
 .env
 internal_data/
+dev/python_requirements.txt
 
 # Node artifact files
 node_modules/
