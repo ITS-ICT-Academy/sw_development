@@ -9,9 +9,15 @@ Clonare il repository in una directory locale.
 
 # Configurazione #
 
-1. Copiare il file `.env_example` in `.env`, ad esempio tramite il comando `cp .env_example .env`.
+1. Aprire un terminale nella directory `sw_development`.
 
-2. Aprire il file `.env` con un file di testo e modificare la stringa assegnata alla variabile `USER_BASE_FOLDER` con il percorso assoluto della directory radice dove è presente il proprio codice e dati che si vogliono rendere disponibili ai container. Ad esempio:
+2. Copiare il file `.env_example` in `.env`, ad esempio tramite il comando
+
+```
+cp .env_example .env
+```
+
+3. Aprire il file `.env` con un file di testo e modificare la stringa assegnata alla variabile `USER_BASE_FOLDER` con il percorso assoluto della directory radice dove è presente il proprio codice e dati che si vogliono rendere disponibili ai container. Ad esempio:
 
 ```
 # File .env
