@@ -88,9 +88,9 @@ f08940bf14c2   its-postgresql          "docker-entrypoint.s…"   47 seconds ago
 
 # Directory di servizio #
 
-Al primo avvio, il comando `docker compose up ...` creerà la directory `internal_data`. Questa conterrà i database di PostgreSQL ed i file di configurazione di PGAdmin. 
+Al primo avvio, il comando `docker compose up ...` creerà due volumi: `sw_development_config_postgresql` e `sw_development_config_pgadmin`. Questi conterranno, rispettivamente, i database di PostgreSQL ed i file di configurazione di PGAdmin. 
 
-Cancellare questa cartella significa riportare il PostgreSQL e PGAdmin alle impostazioni iniziali, in particolare *perdendo tutti i propri database*.
+Cancellare questi volumi significa riportare il PostgreSQL e PGAdmin alle impostazioni iniziali, in particolare *perdendo tutti i propri database*.
 
 
 # Esecuzione di codice Python #
