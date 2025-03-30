@@ -2,6 +2,8 @@ services:
   dev:
     tty: true
     build: ./dev
+    environment:
+      - REQUIREMENTS=${PYTHON_PIP_REQUIREMENTS}
     container_name: ${COMPOSE_PROJECT_NAME}_dev
     volumes:
       - ${USER_BASE_FOLDER}:/home/

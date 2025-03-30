@@ -1,9 +1,9 @@
 FROM python:3.11.11
 
-ENV PYTHON_REQUIREMENTS python_requirements.txt
+ARG REQUIREMENTS
 
-COPY ${PYTHON_REQUIREMENTS} /
-RUN pip install -r ${PYTHON_REQUIREMENTS}
+COPY ${REQUIREMENTS} /requirements.txt
+RUN pip install -r /requirements.txt
 WORKDIR /home/
 
 
