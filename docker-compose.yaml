@@ -4,11 +4,10 @@ services:
     build: 
       context: ./dev
       additional_contexts: 
-        - basefolder=${USER_BASE_FOLDER}
+        - basefolder=${USER_BASE_FOLDER}        
       args:
-        - REQUIREMENTS=${PYTHON_PIP_REQUIREMENTS}
-        - USER_BASE_FOLDER=${USER_BASE_FOLDER}
-    
+         - CONFIG_PATH=${CONFIG_PATH}    
+    env_file: .env
     container_name: ${COMPOSE_PROJECT_NAME}_dev
     volumes:
       - ${USER_BASE_FOLDER}:/home/
