@@ -1,4 +1,4 @@
-# Ecosistema Docker per i corsi ITS ICT Academy #
+# Ecosistema Docker per i corsi ITS ICT Academy (2023-2025) #
 
 Questa repository contiene un ecosistema di container Docker per supportare le attività didattiche relative ai corsi tecnici erogati da ITS ICT Academy.
 
@@ -6,6 +6,20 @@ Questa repository contiene un ecosistema di container Docker per supportare le a
 # Installazione #
 
 Clonare il repository in una directory locale.
+
+Per clonare il repository con `HTTPS`, aprire il terminale ed eseguire il comando:
+
+```
+git clone --branch 2023-2025 https://github.com/ITS-ICT-Academy/sw_development.git 
+```
+
+o, in alternativa, per clonare il repository con `SSH`, aprire il terminale ed eseguire il comando:
+
+```
+git clone --branch 2023-2025 git@github.com:ITS-ICT-Academy/sw_development.git 
+```
+
+
 
 # Configurazione #
 
