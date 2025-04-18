@@ -1,3 +1,4 @@
 # Add here the list of Python libraries you want to install from PyPI
 
 psycopg[binary]==3.2.6  # Driver Python per PostgreSQL
+beartype==0.20.2
