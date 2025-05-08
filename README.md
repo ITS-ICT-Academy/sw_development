@@ -33,7 +33,12 @@ cp .env_example .env
 3. Aprire il file `.env` con un file di testo e modificare: 
 
    1. la stringa assegnata alla variabile `USER_BASE_FOLDER` con il percorso assoluto della directory radice dove è presente il proprio codice e dati che si vogliono rendere disponibili ai container.
-   2. la stringa assegnata alla variabile `PYTHON_PIP_REQUIREMENTS` con il percorso assoluto al file che contiene la lista dei pacchetti python da installare secondo la sintassi pip. Attenzione: il file deve essere all'interno della cartella `USER_BASE_FOLDER`.
+   2. la stringa assegnata alla variabile `CONFIG_PATH` con il percorso relativo alla cartella `USER_BASE_FOLDER` che contiene i file richiesti dal Dockerfile per la configurazione dei container. I file richiesti sono:
+   	* Uno script bash `dev.sh` che esegue una configurazione completa del filesystem virtualizzato durante la build dell'immagine Docker. 
+   	* Tutti i file richiesti dallo script `dev.sh` per la configurazione.
+   
+   Il file `dev.sh` fornito come template dalla repository richiede, in aggiunta, la presenza di un file di testo contenente la lista dei pacchetti python da installare secondo la sintassi pip. Attenzione: la cartella `CONFIG_PATH` deve essere all'interno della cartella `USER_BASE_FOLDER`.
+   3. la stringa assegnata alla variabile `PYTHONPATH` con il percorso assoluto della directory da inserire come libreria Python nell'ambiente di sviluppo.
 
 Ad esempio:
 
@@ -41,7 +46,7 @@ Ad esempio:
 # File .env
 ...
 USER_BASE_FOLDER=~/Documents/its
-PYTHON_PIP_REQUIREMENTS=${USER_BASE_FOLDER}/python_requirements.txt 
+CONFIG_PATH=config 
 ...
 ```
 
