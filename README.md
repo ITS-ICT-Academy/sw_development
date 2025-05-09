@@ -2,6 +2,8 @@
 
 Questa repository contiene un ecosistema di container Docker per supportare le attività didattiche relative ai corsi tecnici erogati da ITS ICT Academy.
 
+*Attenzione*: questo ecosistema di container è pre-configurato per operare in ambiente di sviluppo. Pertanto è completamente disarmato e va configurato diversamente prima di dispiegarlo in un ambiente di produzione.
+
 
 # Installazione #
 
@@ -83,17 +85,17 @@ L'output del comando dovrebbe terminare con qualcosa del tipo:
  ✔ Container its_postgresql  Started   0.1s 
 ```
 
-# Container avviati #
+## Container avviati ##
 
 Verranno avviati i seguenti container:
 
-## its_postgresql: PostgreSQL ##
+### its_postgresql: PostgreSQL ###
 Il DBMS PostgreSQL, nella versione riportata nella prima riga del file `postgresql/Dockerfile`.
 
-## its_pgadmin: PGAdmin ##
+### its_pgadmin: PGAdmin ###
 Il sistema web PGAdmin per la gestione di servizi PostgreSQL, nella versione riportata nella prima riga del file `pgadmin/Dockerfile`.
 
-## its_dev: ambiente per lo sviluppo in Python ## 
+### its_dev: ambiente per lo sviluppo in Python ###
 L'interprete Python, che viene installato con le librerie (e versioni) elencate nel file `dev/python_requirements.txt`.
 
 
@@ -106,14 +108,27 @@ f08940bf14c2   its-postgresql          "docker-entrypoint.s…"   47 seconds ago
 4bfb833bc083   its-dev                 "python3"                47 seconds ago   Up 47 seconds                                   its_dev
 ```
 
-# Persistenza dei dati #
+## Persistenza dei dati ##
 
 Al primo avvio, il comando `docker compose up ...` creerà due volumi: `sw_development_config_postgresql` e `sw_development_config_pgadmin`. Questi conterranno, rispettivamente, i database di PostgreSQL ed i file di configurazione di PGAdmin. 
 
 Cancellare questi volumi significa riportare il PostgreSQL e PGAdmin alle impostazioni iniziali, in particolare *perdendo tutti i propri database*.
 
 
-# Esecuzione di codice Python #
+## Test ##
+
+Il file `.env` ottenuto copiando `.env_example` e senza effettuare alcuna modifica, definisce `USER_BASE_FOLDER=./test`. 
+In tale cartella è presente un piccolo programma di test: `test/simple_test/test.py`.
+
+Per eseguirlo (se non si è modificato `.env`), basterà quindi lanciare il comando:
+
+```
+docker exec -it -w /home/simple_test its_dev python test.py
+```
+
+# Utilizzo dei container #
+
+## Esecuzione di codice Python ##
 
 Per eseguire il programma Python presente nel file `USER_BASE_FOLDER/subfolder1/.../subfolderN/nome_file.py`, basterà lanciare il seguente comando:
 
@@ -131,16 +146,41 @@ Continuando con l'esempio precedente, per eseguire il programma `~/Documents/its
 docker exec -it -w /home/python.1/esercizio_1.1 its_dev python main.py [OPTIONS]
 ```
 
-# Test #
 
-Il file `.env` ottenuto copiando `.env_example` e senza effettuare alcuna modifica, definisce `USER_BASE_FOLDER=./test`. 
-In tale cartella è presente un piccolo programma di test: `test/simple_test/test.py`.
+## Gestione di basi di dati in PostgreSQL utilizzando PGAdmin ##
 
-Per eseguirlo (se non si è modificato `.env`), basterà quindi lanciare il comando:
+Puntando un browser all'indirizzo https://localhost:PPPP (dove PPPP è il numero di porta salvata nella variabile `PGADMIN_EXPOSED_PORT` del file `.env`) si accederà a PGAdmin, un sistema di gestione di server PostgreSQL.
 
-```
-docker exec -it -w /home/simple_test its_dev python test.py
-```
+Le credenziali da utilizzare per l'accesso sono:
+ * nome utente: `admin@pgadmin.org`
+ * password: `admin`
+
+Una volta acceduto alla console di PGAdmin, bisognerà configurare la connessione ad almeno un server PostgreSQL. Per permettere la connessione al server PostgreSQL compreso in questo ecosistema, procedere come segue:
+ * Scegliere lo strumento "Add New Server" dalla home page
+ * Nella tab "General":
+	 * Name: il nome che si vuole dare al server, ad esempio `postgresql`
+	 * Lasciare le altre impostazioni al loro default
+ * Nella tab "Connection":
+	 * Host name/address: impostare l'indirizzo IP o l'hostname del server a cui ci si vuole connettere. Nel caso di connessione al server PostgreSQL incluso nell'ecosistema Docker, utilizzare il nome del servizio PostgreSQL, come configurato nel file `docker-compose.yaml`, ovvero `postgresql`
+	 * Username: utilizzare il nome utente di default dell'immagine Docker di PostgreSQL, ovvero `postgres`
+	 * Password: la password di default dell'account: `postgresql`
+	 * Save password: Sì
+	 * Lasciare le altre impostazioni al loro default
+ * Salvare.
+
+A questo punto nella barra	di navigazione a sinistra, sarà presente il nuovo server (`postgresql`, se si è utilizzato il nome suggerito).
+
+Espandendo il server nella barra di navigazione a sinistra, si possono elencare i database presenti nel DBMS. Dovrebbe esistere solo il database `postgres`, ovvero il database di servizio del DBMS che ospita i metadati e che non va mai utilizzato.
+
+È possibile creare un nuovo database cliccando con il tasto destro e scegliendo `Create -> Database`, oppure, dopo aver selezionato il server, dal menu "Object".
+
+Una volta selezionato (nella barra di navigazione) il database a cui ci si vuole connettere, utilizzare lo strumento "Query Tool", disponibile come pulsante nella parte alta della barra di navigazione oppure dal menu "Tool". Si aprirà una tab il cui titolo menziona il server a cui si è connessi, il nome utente e il database a cui ci si è connessi.
+
+Il query tool permette di inviare comandi SQL. Scrivere uno o più comandi (separati da `;`) e cliccare sul pulsante "Execute script" nella barra degli strumenti.
+
+Per ulteriori dettagli su PGAdmin, consultare la [documentazione specifica](https://www.pgadmin.org/docs/pgadmin4/latest/index.html).
+
+
 
 # Terminare i container #
 
