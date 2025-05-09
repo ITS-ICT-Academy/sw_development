@@ -55,6 +55,9 @@ CONFIG_PATH=config
 con la directory `~/Documents/its` che contiene, ad esempio:
 
 ```
+config/
+	dev.sh
+	python_requirements.txt
 python.1/
 	esercizio_1.1/
 		main.py
