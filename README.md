@@ -166,7 +166,7 @@ Una volta acceduto alla console di PGAdmin, bisognerà configurare la connession
  * Nella tab "Connection":
 	 * Host name/address: impostare l'indirizzo IP o l'hostname del server a cui ci si vuole connettere. Nel caso di connessione al server PostgreSQL incluso nell'ecosistema Docker, utilizzare il nome del servizio PostgreSQL, come configurato nel file `docker-compose.yaml`, ovvero `postgresql`
 	 * Username: utilizzare il nome utente di default dell'immagine Docker di PostgreSQL, ovvero `postgres`
-	 * Password: la password di default dell'account: `postgresql`
+	 * Password: la password di default dell'account: `postgres`
 	 * Save password: Sì
 	 * Lasciare le altre impostazioni al loro default
  * Salvare.
