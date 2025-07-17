@@ -133,12 +133,12 @@ docker exec -it -w /home/simple_test its_dev python test.py
 
 ## Esecuzione di codice Python ##
 
-[Qui](dev/docs/README_PYTHON.md) sono presenti le istruzioni per l'esecuzione di codice Python
+[Qui](dev/docs/README_PYTHON.md) sono presenti le istruzioni per l'esecuzione di codice Python.
 
 
 ## Esecuzione codice JavaScript con NodeJS & React
 
-[Qui](dev/docs/README_NODEJS_REACT.md) sono presentu le istruzioni di codice JavaScript con NodeJS & React.
+[Qui](dev/docs/README_NODEJS_REACT.md) sono presenti le istruzioni per l'esecuzione di codice JavaScript con NodeJS & React.
 
 
 ## Gestione di basi di dati in PostgreSQL utilizzando PGAdmin ##

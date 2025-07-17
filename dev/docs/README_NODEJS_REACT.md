@@ -2,9 +2,9 @@
 
 Per eseguire l'applicazione presente nel file `USER_BASE_FOLDER/subfolder1/.../subfolderN/`, è necessario creare una nuova applicazione web corredata da un server web.
 
-Per creare ed eseguire una nuova applicazione, sono necessari i seguenti passi:
+I seguenti passi sono necessari per la creazione ed esecuzione di una nuova applicazione React:
 
-1. Creare uno script `nodejs-run.sh` all'interno della user base folder `USER_BASE_FOLDER/subfolder1/.../subfolderN/` con il seguente contenuto: 
+1. Creare lo script `nodejs-react-run.sh` all'interno della user base folder `USER_BASE_FOLDER/subfolder1/.../subfolderN/` con il seguente contenuto: 
 
 ```bash
 # Define variables require to configure the web app
@@ -33,11 +33,13 @@ npm start
 popd
 ```
 
+dove:
+
 * `REACT_FOLDER` è il percorso assoluto in cui sono presenti le applicazioni JavaScript. Corrisponde al percorso `USER_BASE_FOLDER/subfolder1/.../subfolderN/`.
 
-* `APP_NAME` è il nome dell'applicazione react che si vuole creare.
+* `APP_NAME` è il nome dell'applicazione React che si vuole creare.
 
-* `FIRST_EXPOSED_PORT` è la prima delle porte esposte, indicate nella variabile d'ambiente `NODEJS_EXPOSED_PORTS`, presente nel file `.env`
+* `FIRST_EXPOSED_PORT` è la prima delle porte esposte, indicate nella variabile d'ambiente `NODEJS_EXPOSED_PORTS` nel file `.env`
 
 Nello script bash di esempio, il nome dell'applicazione è `app-react`, mentre la prima delle porte esposte è la `4000`.
 
@@ -48,4 +50,4 @@ Nello script bash di esempio, il nome dell'applicazione è `app-react`, mentre l
 docker exec -it -w /home/subfolder1/.../subfolderN its_dev bash nodejs-run.sh
 ```
 
-Il comando `bash nodejs-run.sh` verrà eseguito all'interno del container, nella directory specificata dall'opzione `-w`.
+Il comando `bash nodejs-react-run.sh` verrà eseguito all'interno del container, nella directory specificata dall'opzione `-w`.
