@@ -138,7 +138,7 @@ docker exec -it -w /home/simple_test its_dev python test.py
 
 ## Esecuzione codice JavaScript con NodeJS & React
 
-[Qui](dev/docs/README_NODEJS) sono presentu le istruzioni di codice JavaScript con NodeJS & React.
+[Qui](dev/docs/README_NODEJS_REACT.md) sono presentu le istruzioni di codice JavaScript con NodeJS & React.
 
 
 ## Gestione di basi di dati in PostgreSQL utilizzando PGAdmin ##
