@@ -4,12 +4,13 @@ date
 echo "Executing script '${0} to configure 'dev' container"
 echo "Working directory: $(pwd)"
 
+##### Python configurations #####
 PYTHON_REQUIREMENTS="./python_requirements.txt"
 echo "Installing python packages from file $(realpath "${PYTHON_REQUIREMENTS}")"
 pip install -r "./python_requirements.txt"
 
 
-##### NodeJS
+##### NodeJS & React #####
 # Download and install nvm:
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
 

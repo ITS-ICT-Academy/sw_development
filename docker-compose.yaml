@@ -15,7 +15,7 @@ services:
       - network
     restart: unless-stopped
     ports:
-      - ${NODEJS_EXPOSED_PORT}:3000
+      - ${NODEJS_EXPOSED_PORTS}:${NODEJS_EXPOSED_PORTS}
 
   postgresql:
     build: ./postgresql

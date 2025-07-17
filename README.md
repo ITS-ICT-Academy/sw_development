@@ -133,21 +133,12 @@ docker exec -it -w /home/simple_test its_dev python test.py
 
 ## Esecuzione di codice Python ##
 
-Per eseguire il programma Python presente nel file `USER_BASE_FOLDER/subfolder1/.../subfolderN/nome_file.py`, basterà lanciare il seguente comando:
+[Qui](dev/docs/README_PYTHON.md) sono presenti le istruzioni per l'esecuzione di codice Python
 
-```
-docker exec -it -w /home/subfolder1/.../subfolderN its_dev python nome_file.py [OPTIONS]
-```
 
-sostituendo a `nome_file.py` il nome del file Python che si vuole eseguire, ed aggiungere eventuali opzioni da riga di comando.
+## Esecuzione codice JavaScript con NodeJS & React
 
-Il comando `python nome_file.py [OPTIONS]` verrà eseguito all'interno del container, nella directory specificata dall'opzione `-w`.
-
-Continuando con l'esempio precedente, per eseguire il programma `~/Documents/its/python.1/esercizio_1.1/main.py` (con `USER_BASE_FOLDER=~/Documents/its`), basterà eseguire:
-
-```
-docker exec -it -w /home/python.1/esercizio_1.1 its_dev python main.py [OPTIONS]
-```
+[Qui](dev/docs/README_NODEJS) sono presentu le istruzioni di codice JavaScript con NodeJS & React.
 
 
 ## Gestione di basi di dati in PostgreSQL utilizzando PGAdmin ##

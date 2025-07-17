@@ -6,8 +6,6 @@ ARG CONFIG_PATH
 
 COPY --from=basefolder "${CONFIG_PATH}"/ /first-time-config
 WORKDIR /first-time-config
-RUN bash /first-time-config/dev-build.sh
+RUN bash /first-time-config/dev.sh && rm -rf /first-time-config/
 WORKDIR /home
-
-#CMD bash /first-time-config/dev-run.sh
 
