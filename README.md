@@ -114,9 +114,13 @@ Verranno avviati i seguenti container:
 -------
 
 ### its_dev: ambiente per lo sviluppo ###
-L'ambiente di sviluppo contiene:
-* L'interprete Python, che viene installato con le librerie (e versioni) elencate nel file `dev/python_requirements.txt`.
-* L'ambiente di sviluppo NodeJS & ReactJS per la creazione e sviluppo di applicazioni web.
+L'ambiente di sviluppo è già configurato per poter eseguire:
+
+* Codice Python. L'interprete Python viene installato con le librerie (e versioni) elencate nel file `dev/python_requirements.txt`.
+
+* Codice Javascript per applicazioni web utilizzando NodeJS & ReactJS.
+
+L'ambiente di sviluppo è estendibile dall'utente.
 
 **Guida per l'uso**: Il file [`dev/README.md`](dev/README.md) contiene una guida dettagliata su come utilizzare questo container.
 
