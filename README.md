@@ -150,13 +150,6 @@ f08940bf14c2   its-postgresql          "docker-entrypoint.s…"   47 seconds ago
 4bfb833bc083   its-dev                 "python3"                47 seconds ago   Up 47 seconds                                   its_dev
 ```
 
-## Persistenza dei dati ##
-
-Al primo avvio, il comando `docker compose up ...` creerà due volumi: `sw_development_config_postgresql` e `sw_development_config_pgadmin`. Questi conterranno, rispettivamente, i database di PostgreSQL ed i file di configurazione di PGAdmin. 
-
-Cancellare questi volumi significa riportare il PostgreSQL e PGAdmin alle impostazioni iniziali, in particolare *perdendo tutti i propri database*.
-
-
 ## Test ##
 
 Il file `.env` ottenuto copiando `.env_example` e senza effettuare alcuna modifica, definisce `USER_BASE_FOLDER=./test`. 
@@ -167,6 +160,21 @@ Per eseguirlo (se non si è modificato `.env`), basterà quindi lanciare il coma
 ```
 docker exec -it -w /home/simple_test its_dev python test.py
 ```
+
+## Persistenza dei dati ##
+
+Al primo avvio, il comando `docker compose up ...` creerà due volumi: `sw_development_config_postgresql` e `sw_development_config_pgadmin`. Questi conterranno, rispettivamente, i database di PostgreSQL ed i file di configurazione di PGAdmin. 
+
+I volumi possono essere visualizzati tramite il comando `docker volume ls`, che restituirà qualcosa del tipo:
+
+```
+DRIVER    VOLUME NAME
+local     its_sw_development_config_pgadmin
+local     its_sw_development_config_postgresql
+```
+
+Cancellare questi volumi (mediante il comando `docker volume rm <VOLUME_NAME>`) significa riportare il PostgreSQL e PGAdmin alle impostazioni iniziali, in particolare *perdendo tutti i propri database*.
+
 
 
 # Terminare i container #
