@@ -98,8 +98,10 @@ Il DBMS PostgreSQL, nella versione riportata nella prima riga del file `postgres
 ### its_pgadmin: PGAdmin ###
 Il sistema web PGAdmin per la gestione di servizi PostgreSQL, nella versione riportata nella prima riga del file `pgadmin/Dockerfile`.
 
-### its_dev: ambiente per lo sviluppo in Python ###
-L'interprete Python, che viene installato con le librerie (e versioni) elencate nel file `dev/python_requirements.txt`.
+### its_dev: ambiente per lo sviluppo ###
+L'ambiente di sviluppo contiene:
+* L'interprete Python, che viene installato con le librerie (e versioni) elencate nel file `dev/python_requirements.txt`.
+* L'ambiente di sviluppo NodeJS & React per la creazione e sviluppo di applicazioni web.
 
 
 È possibile elencare i container attivi tramite il comando `docker ps`. Il risultato dovrebbe essere:
