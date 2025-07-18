@@ -5,7 +5,7 @@
 ## Creazione di una nuova app NodeJS & ReactJS ##
 Assumiamo di voler creare una nuova app ReactJS corredata da un server web, e di volerla salvare nella directory della macchina host: 
 ```
-	${USER_BASE_FOLDER}/subfolder1/.../subfolderN/
+${USER_BASE_FOLDER}/subfolder1/.../subfolderN/
 ```
 
 Procedere come segue:
@@ -60,11 +60,11 @@ exit
 
 Il webserver dell'app presente nella directory 
 ```
-	${USER_BASE_FOLDER}/subfolder1/.../subfolderN/nome-app/
+${USER_BASE_FOLDER}/subfolder1/.../subfolderN/nome-app/
 ```
 della macchina host potrà essere lanciato tramite il comando:
 ```
-	docker exec -it -w /home/subfolder1/.../subfolderN/nome-app its_dev bash -ilc "npm start"
+docker exec -it -w /home/subfolder1/.../subfolderN/nome-app its_dev bash -ilc "npm start"
 ```
 
 Il comando esegue l'eseguibile `npm` (Node Package Manager) con l'opzione `start` all'interno del container, nella directory dell'app.
