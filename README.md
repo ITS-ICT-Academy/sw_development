@@ -29,6 +29,3 @@ Questa repository contiene un ecosistema di container Docker per supportare le a
 * Toni Mancini ([tmancini@di.uniroma1.it](tmancini@di.uniroma1.it))
 
 
----------
-
-<button onclick="history.back()"><< Indietro</button>

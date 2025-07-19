@@ -24,4 +24,4 @@ Per aggiornare la versione installata localmente, procedere nel modo seguente:
 
 ---------
 
-<button onclick="history.back()"><< Indietro</button>
+[Home](README.md)

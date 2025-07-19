@@ -95,4 +95,5 @@ Dal terminale che mostra il webserver in esecuzione, digitare control-c per speg
 
 ---------
 
-<button onclick="history.back()"><< Indietro</button>
+[Home](../README.md)
+ * [Il container `dev`](./README.md)

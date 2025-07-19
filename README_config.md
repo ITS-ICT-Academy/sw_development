@@ -32,4 +32,4 @@ Questi script si prestano ad essere modificato dall'utente per installare, nei d
    
 ---------
 
-<button onclick="history.back()"><< Indietro</button>
+[Home](README.md)

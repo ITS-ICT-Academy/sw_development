@@ -1,6 +1,6 @@
-# Container `dev` #
+# Il container `its_dev` #
 
-Il container `dev` è basato su una distribuzione linux (si veda il relativo [`Dockerfile`](Dockerfile)) e contiene un ambiente di sviluppo per eseguire programmi in diversi linguaggi di programmazione.
+Il container `its_dev` è basato su una distribuzione linux (si veda il relativo [`Dockerfile`](Dockerfile)) e contiene un ambiente di sviluppo per eseguire programmi in diversi linguaggi di programmazione.
 
 
 ### Lo script `${USER_BASE_FOLDER}/${CONFIG_PATH}/dev.sh` ###
@@ -30,4 +30,4 @@ Sono disponibili guide dettagliate per eseguire programmi nei diversi linguaggi 
 
 ---------
 
-<button onclick="history.back()"><< Indietro</button>
+[Home](../README.md)

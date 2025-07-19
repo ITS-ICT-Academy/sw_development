@@ -1,18 +1,10 @@
-# Il DBMS PostgreSQL #
+# Il container `its_postgresql` #
 
-Questo container contiene una installazione del DBMS PostgreSQL.
-
-
-## PGAdmin ##
-PGAdmin è un'app web che facilita la gestione di basi di dati in PostgreSQL. PGAdmin è già compreso in questo ecosistema Docker, nel container `pgadmin`.
-
-**Guida per l'uso**: Il file [`./README_PGADMIN.md`](./README_PGADMIN.md) descrive brevemente come configurare ed utilizzare PGADmin.
-
-
+Questo container contiene una installazione del [DBMS PostgreSQL](https://www.postgresql.org).
 
 ## Connessione da terminale a PostgreSQL ##
 
-Oltre ad essere accessibile da PGAdmin, PostgreSQL possiede una potente interfaccia da riga di comando. 
+PostgreSQL possiede una potente interfaccia da riga di comando. 
 Per connettersi, utilizzare il seguente comando:
 
 ```
@@ -32,6 +24,12 @@ Il server PostgreSQL è accessibile tramite API:
  * Da software eseguito direttamente nella macchina host, connettendosi all'host `localhost` sulla porta salvata nella variabile d'ambiente `POSTGRESQL_EXPOSED_PORT` del file `.env`.
 
 
+## PGAdmin ##
+PGAdmin è un'app web che facilita la gestione di basi di dati in PostgreSQL. [PGAdmin è già compreso in questo ecosistema Docker, nel container `pgadmin`](README_pgadmin.md).
+
+
+
+
  ------
 
-[Torna su](../README.md)
+[Home](../README.md)

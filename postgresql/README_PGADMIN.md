@@ -1,6 +1,6 @@
-# PGAdmin #
+# Il container `its_pgadmin` #
 
-PGAdmin è un'app web per la gestione di basi di dati in PostgreSQL. 
+Questo container contiene una installazione del software PGAdmin, un'app web per la gestione di basi di dati in PostgreSQL. 
 
 ## Accesso a PGAdmin ##
 
@@ -49,4 +49,5 @@ Per ulteriori dettagli su PGAdmin, consultare la [documentazione specifica](http
 
 ----------
 
-[Torna su](README.md)
+[Home](../README.md)
+* [Il container `its_postgresql`](README.md)

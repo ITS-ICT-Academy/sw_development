@@ -83,4 +83,4 @@ Il contenuto della cartella `USER_BASE_FOLDER` resterà disponibile per la succe
 
 ---------
 
-<button onclick="history.back()"><< Indietro</button>
+[Home](README.md)
