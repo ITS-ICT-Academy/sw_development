@@ -37,7 +37,7 @@ cd "/home/subfolder1/.../subfolderN/"
 4. Scegliere una porta del container libera dove esporre il webserver dell'app. 
 Sebbene, in linea di principio si possa scegliere qualunque intero tra 1 e 65535 non utilizzato da altri servizi o app, questo ecosistema Docker è predisposto per dedicare alle app NodeJS & React le porte tra la 3000 e la 3100.
 
-**Nota**: Per utilizzare valori di porta fuori da questo intervallo, è necessario modificare la variabile `NODEJS_EXPOSED_PORTS` nel file `sw_development/.env`.
+    **Nota**: Per utilizzare valori di porta fuori da questo intervallo, è necessario modificare la variabile `NODEJS_EXPOSED_PORTS` nel file `sw_development/.env`.
 
 5. Eseguire il comando, fornito dal framework React, per creare il codice di base di una nuova app:
 ```
