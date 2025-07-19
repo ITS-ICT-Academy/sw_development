@@ -29,6 +29,24 @@ Per eseguire il programma
 docker exec -it -w /home/python.1/esercizio_1.1 its_dev python main.py "argomento 1" "argomento 2"
 ```
 
+--------
+
+Alternativamente, è possibile aprire una shell `bash` all'interno del container con:
+
+```
+docker exec -it its_dev bash
+```
+
+Nel prompt della shell:
+```
+root@a3eb9e517663:/home#
+```
+
+è possibile cambiare la directory corrente con il comando `cd`, elencare il contenuto della directory corrente con il comando `ls`, ed eseguire l'interprete `python` in totale libertà, esattamente come si farebbe in un qualunque sistema linux.
+
+Per uscire dalla shell del container, eseguire il comando `exit`.
+
+
 ---------
 
 [Home](../README.md)
