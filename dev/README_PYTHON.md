@@ -1,6 +1,6 @@
 # Esecuzione di codice Python #
 
-[Come spiegato qui](../README.md#configurazione), la directory della macchina host puntata dalla variabile d'ambiente `USER_BASE_FOLDER` viene montata al percorso `/home` all'interno del container.
+Si ricorda che la directory della macchina host puntata dalla variabile d'ambiente `USER_BASE_FOLDER` (definita nel file `sw_development/.env`) viene montata al percorso `/home` all'interno del container.
 
 Assumiamo di voler eseguire il programma Python presente nel file: 
 ```
@@ -29,6 +29,6 @@ Per eseguire il programma
 docker exec -it -w /home/python.1/esercizio_1.1 its_dev python main.py "argomento 1" "argomento 2"
 ```
 
--------
+---------
 
-[Torna su](README.md)
+<button onclick="history.back()"><< Indietro</button>

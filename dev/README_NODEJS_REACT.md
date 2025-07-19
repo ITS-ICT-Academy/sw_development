@@ -1,16 +1,17 @@
-# Esecuzione di app web NodeJS & ReactJS #
+# Esecuzione di app web NodeJS & React #
 
-[Come spiegato qui](../README.md#configurazione), la directory della macchina host puntata dalla variabile d'ambiente `USER_BASE_FOLDER` viene montata al percorso `/home` all'interno del container.
+Si ricorda che la directory della macchina host puntata dalla variabile d'ambiente `USER_BASE_FOLDER` (definita nel file `sw_development/.env`) viene montata al percorso `/home` all'interno del container.
 
-## Creazione di una nuova app NodeJS & ReactJS ##
-Assumiamo di voler creare una nuova app ReactJS corredata da un server web, e di volerla salvare nella directory della macchina host: 
+
+## Creazione di una nuova app NodeJS & React ##
+Assumiamo di voler creare una nuova app web basata su React, corredata da un server web, e di volerla salvare nella directory della macchina host: 
 ```
 ${USER_BASE_FOLDER}/subfolder1/.../subfolderN/
 ```
 
 Procedere come segue:
 
-1. Aprire una shell bash all'interno container `dev` tramite il comando:
+1. Aprire una shell bash all'interno container `its_dev` tramite il comando:
 ```
 docker exec -it its_dev bash
 ```
@@ -34,11 +35,11 @@ cd "/home/subfolder1/.../subfolderN/"
 ```
 
 4. Scegliere una porta del container libera dove esporre il webserver dell'app. 
-Sebbene, in linea di principio si possa scegliere qualunque intero tra 1 e 65535 non utilizzato da altri servizi/app, questo ecosistema Docker è predisposto per dedicare alle app NodeJS & React le porte tra la 3000 e la 3100.
+Sebbene, in linea di principio si possa scegliere qualunque intero tra 1 e 65535 non utilizzato da altri servizi o app, questo ecosistema Docker è predisposto per dedicare alle app NodeJS & React le porte tra la 3000 e la 3100.
 
-*Nota*: Per utilizzare valori di porta fuori da questo intervallo, è necessario modificare la variabile `NODEJS_EXPOSED_PORTS` nel file `.env`.
+**Nota**: Per utilizzare valori di porta fuori da questo intervallo, è necessario modificare la variabile `NODEJS_EXPOSED_PORTS` nel file `sw_development/.env`.
 
-5. Eseguire il comando, fornito dal framework ReactJS, per creare il codice di base di una nuova app:
+5. Eseguire il comando, fornito dal framework React, per creare il codice di base di una nuova app:
 ```
 export PORT=XXXX && npx --yes create-react-app "nome-app"
 ```
@@ -56,7 +57,7 @@ exit
 ```
 
 
-## Avvio del webserver di una app NodeJS & ReactJS ##
+## Avvio del webserver di una app NodeJS & React ##
 
 Il webserver dell'app presente nella directory 
 ```
@@ -92,6 +93,6 @@ Si noti che il comando precedente non restituisce il prompt dei comandi.
 
 Dal terminale che mostra il webserver in esecuzione, digitare control-c per spegnere il webserver.
 
--------
+---------
 
-[Torna su](README.md)
+<button onclick="history.back()"><< Indietro</button>
