@@ -9,6 +9,13 @@ Assumiamo di voler creare una nuova app web basata su React, corredata da un ser
 ${USER_BASE_FOLDER}/subfolder1/.../subfolderN/
 ```
 
+Questo ecosistema è preconfigurato per supportare due metodi alternativi: utilizzando il comando ufficiale di React e utilizzando la libreria esterna Vite.dev.
+
+
+### Creazione app tramite il comando ufficiale di React ###
+
+Questo approccio, sebbene sia quello ufficiale di React, comportà attese più lunghe nella costruzione e nel lancio dell'app.
+
 Procedere come segue:
 
 1. Aprire una shell bash all'interno container `its_dev` tramite il comando:
@@ -30,23 +37,24 @@ mkdir -p "/home/subfolder1/.../subfolderN/"
 ```
 
 3. Entrare nella directory appena creata:
-```
-cd "/home/subfolder1/.../subfolderN/"
-```
+    ```
+    cd "/home/subfolder1/.../subfolderN/"
+    ```
 
 4. Scegliere una porta del container libera dove esporre il webserver dell'app. 
-Sebbene, in linea di principio si possa scegliere qualunque intero tra 1 e 65535 non utilizzato da altri servizi o app, questo ecosistema Docker è predisposto per dedicare alle app NodeJS & React le porte tra la 3000 e la 3100.
+Sebbene, in linea di principio si possa scegliere qualunque intero tra 1 e 65535 non utilizzato da altri servizi o app, questo ecosistema Docker è predisposto per dedicare alle app NodeJS & React le porte tra la 3000 e la 3099.
 
     **Nota**: Per utilizzare valori di porta fuori da questo intervallo, è necessario modificare la variabile `NODEJS_EXPOSED_PORTS` nel file `sw_development/.env`.
 
-5. Eseguire il comando, fornito dal framework React, per creare il codice di base di una nuova app:
-```
-export PORT=XXXX && npx --yes create-react-app "nome-app"
-```
+5. Eseguire il seguente comando, fornito dal framework React, per creare il codice di base di una nuova app:
 
-dove:
- * `XXXX` è la porta scelta, ad es., `3000`
- * `"nome-app"` è il nome scelto per l'app, ad es. `mia-app-react`
+    ```
+    export PORT=XXXX && npx --yes create-react-app "nome-app"
+    ```
+
+    Nel comando:
+     * `XXXX` è la porta scelta, ad es., `3000`
+     * `"nome-app"` è il nome scelto per l'app, ad es. `mia-app-react`
 
 Il codice iniziale dell'app sarà salvato nella sottodirectory `nome-app` della directory `/home/subfolder1/.../subfolderN/`. 
 Il webserver dell'app sarà configurato per essere in ascolto sulla porta `XXXX` assegnata alla variabile d'ambiente `PORT`.
@@ -57,41 +65,98 @@ exit
 ```
 
 
+### Creazione app tramite la libreria Vite.dev ###
+
+La libreria [Vite.dev](https://vite.dev/) permette la creazione e la compilazione più efficiente delle app.
+
+Procedere come segue:
+
+1. Seguire la procedura al punto precedente "[Creazione app tramite il comando ufficiale di React](#creazione-app-tramite-il-comando-ufficiale-di-react)" fino al punto 4 (incluso).
+
+2. Eseguire il seguente comando alternativo, fornito dalla libreria esterna Vite.dev, per creare il codice di base di una nuova app:
+
+    ```
+    npm create vite@latest "nome-app" -- --template react
+    ```
+
+    Nel comando:
+     * `"nome-app"` è il nome scelto per l'app, ad es. `mia-app-react`
+
+3. Al termine dell'esecuzione, eseguire:
+    ```
+    cd "nome-app" # sostituendo "nome-app" con il nome scelto per l'app
+    npm install
+    ```
+    per finalizzare l'installazione dell'app.
+
+
+
 ## Avvio del webserver di una app NodeJS & React ##
 
 Il webserver dell'app presente nella directory 
 ```
 ${USER_BASE_FOLDER}/subfolder1/.../subfolderN/nome-app/
 ```
-della macchina host potrà essere lanciato tramite il comando:
-```
-docker exec -it -w /home/subfolder1/.../subfolderN/nome-app its_dev bash -ilc "npm start"
-```
+della macchina host potrà essere lanciato tramite uno dei seguenti due comandi, in base alla procedura scelta per la creazione:
 
-Il comando esegue l'eseguibile `npm` (Node Package Manager) con l'opzione `start` all'interno del container, nella directory dell'app.
+  * Se l'app è stata installata con il comando ufficiale di React:
+    ```
+    docker exec -it -w /home/subfolder1/.../subfolderN/nome-app its_dev bash -ilc "npm start"
+    ```
 
-Il risultato sarà qualcosa del tipo:
-```
-Compiled successfully!
+    Il comando esegue l'eseguibile `npm` (Node Package Manager) con l'opzione `start` all'interno del container, nella directory dell'app.
 
-You can now view nome-app in the browser.
+    Il risultato sarà qualcosa del tipo:
+    ```
+    Compiled successfully!
 
-  Local:            http://localhost:XXXX
-  On Your Network:  http://172.NN.NN.NN:XXXX
+    You can now view nome-app in the browser.
 
-Note that the development build is not optimized.
-To create a production build, use npm run build.
+      Local:            http://localhost:XXXX
+      On Your Network:  http://172.NN.NN.NN:XXXX
 
-webpack compiled successfully
-```
+    Note that the development build is not optimized.
+    To create a production build, use npm run build.
 
-In dettaglio, l'eseguibile `npm` con l'opzione `start` viene eseguito come comando (`-c) da una shell bash in modalità login (`-l) ed interattiva (-i), all'interno della working directory specificata da `-w`.
+    webpack compiled successfully
+    ```
 
-Si noti che il comando precedente non restituisce il prompt dei comandi. 
+    In dettaglio, l'eseguibile `npm` con l'opzione `start` viene eseguito come comando (`-c) da una shell bash in modalità login (`-l) ed interattiva (-i), all'interno della working directory specificata da `-w`.
+
+    Si noti che il comando precedente non restituisce il prompt dei comandi. 
+
+
+
+  * Se invece l'app è stata installata tramite Vite.dev:
+    ```
+    docker exec -it -w /home/subfolder1/.../subfolderN/nome-app its_dev bash -ilc "npm run dev -- --host --port XXXX"
+    ```
+
+    dove:
+    * `XXXX` è la porta scelta, ad es., `3000`
+
+    Il risultato sarà qualcosa del tipo:
+    ```    
+    VITE v7.0.6  ready in 89 ms
+
+    ➜  Local:   http://localhost:XXXX/
+    ➜  Network: http://172.20.0.3:XXXX/
+    ➜  press h + enter to show help
+    ```
+
+In ogni caso, il sistema stampa in output l'indirizzo dove puntare il browser per accedere all'app: http://localhost:XXXX (dove XXXX è il numero di porta scelto).
 
 ## Spegnimento del webserver ##
 
-Dal terminale che mostra il webserver in esecuzione, digitare control-c per spegnere il webserver.
+Dal terminale che mostra il webserver in esecuzione: 
+
+* Se l'app è stata installata con il comando ufficiale di React:
+  * premere `control`-`c`
+
+* Se invece l'app è stata installata tramite Vite.dev:
+  * digitare `q` e poi premere il tasto `invio`
+
+per spegnere il webserver.
 
 ---------
 
