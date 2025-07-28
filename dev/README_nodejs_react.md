@@ -11,11 +11,6 @@ ${USER_BASE_FOLDER}/subfolder1/.../subfolderN/
 
 Questo ecosistema è preconfigurato per supportare due metodi alternativi: utilizzando il comando ufficiale di React e utilizzando la libreria esterna Vite.dev.
 
-
-### Creazione app tramite il comando ufficiale di React ###
-
-Questo approccio, sebbene sia quello ufficiale di React, comportà attese più lunghe nella costruzione e nel lancio dell'app.
-
 Procedere come segue:
 
 1. Aprire una shell bash all'interno container `its_dev` tramite il comando:
@@ -46,7 +41,16 @@ Sebbene, in linea di principio si possa scegliere qualunque intero tra 1 e 65535
 
     **Nota**: Per utilizzare valori di porta fuori da questo intervallo, è necessario modificare la variabile `NODEJS_EXPOSED_PORTS` nel file `sw_development/.env`.
 
-5. Eseguire il seguente comando, fornito dal framework React, per creare il codice di base di una nuova app:
+
+5. Scegliere se creare l'app tramite il comando ufficiale di React o tramite la libreria esterna Vite.dev e procedere con le relative istruzioni di seguito.
+
+
+### Creazione app tramite il comando ufficiale di React ###
+
+Questo approccio, sebbene sia quello ufficiale di React, comportà attese più lunghe nella costruzione e nel lancio dell'app.
+
+
+6. Eseguire il seguente comando, fornito dal framework React, per creare il codice di base di una nuova app:
 
     ```
     export PORT=XXXX && npx --yes create-react-app "nome-app"
@@ -59,7 +63,7 @@ Sebbene, in linea di principio si possa scegliere qualunque intero tra 1 e 65535
 Il codice iniziale dell'app sarà salvato nella sottodirectory `nome-app` della directory `/home/subfolder1/.../subfolderN/`. 
 Il webserver dell'app sarà configurato per essere in ascolto sulla porta `XXXX` assegnata alla variabile d'ambiente `PORT`.
 
-6. Uscire dalla shell `bash` del container con il comando
+7. Uscire dalla shell `bash` del container con il comando
 ```
 exit
 ```
@@ -68,12 +72,9 @@ exit
 ### Creazione app tramite la libreria Vite.dev ###
 
 La libreria [Vite.dev](https://vite.dev/) permette la creazione e la compilazione più efficiente delle app.
-
 Procedere come segue:
 
-1. Seguire la procedura al punto precedente "[Creazione app tramite il comando ufficiale di React](#creazione-app-tramite-il-comando-ufficiale-di-react)" fino al punto 4 (incluso).
-
-2. Eseguire il seguente comando alternativo, fornito dalla libreria esterna Vite.dev, per creare il codice di base di una nuova app:
+6. Eseguire il seguente comando fornito dalla libreria esterna Vite.dev, per creare il codice di base di una nuova app:
 
     ```
     npm create vite@latest "nome-app" -- --template react
@@ -82,13 +83,19 @@ Procedere come segue:
     Nel comando:
      * `"nome-app"` è il nome scelto per l'app, ad es. `mia-app-react`
 
-3. Al termine dell'esecuzione, eseguire:
+7. Al termine dell'esecuzione, eseguire:
     ```
     cd "nome-app" # sostituendo "nome-app" con il nome scelto per l'app
     npm install
     ```
     per finalizzare l'installazione dell'app.
 
+8. Uscire dalla shell `bash` del container con il comando
+```
+exit
+```
+
+Si noti come, utilizzando Vite.dev, la porta del webserver non viene definita al momento della creazione dell'app, ma al momento del suo avvio, come mostrato di seguito.
 
 
 ## Avvio del webserver di una app NodeJS & React ##
