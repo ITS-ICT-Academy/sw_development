@@ -1,4 +1,4 @@
-FROM python:3.11.11
+FROM ubuntu:24.04
 
 ENV DEBIAN_FRONTEND=noninteractive
 
