@@ -1,6 +1,7 @@
 services:
   dev:
     tty: true
+    image: ${COMPOSE_PROJECT_NAME}_dev
     build: 
       context: ./dev
       additional_contexts: 
@@ -18,6 +19,7 @@ services:
       - ${NODEJS_EXPOSED_PORTS}:${NODEJS_EXPOSED_PORTS}
 
   postgresql:
+    image: ${COMPOSE_PROJECT_NAME}_postgresql
     build: ./postgresql
     container_name: ${COMPOSE_PROJECT_NAME}_postgresql
     environment:
@@ -33,7 +35,7 @@ services:
       - network
     restart: unless-stopped
 
-  pgadmin:
+  pgadmin:    
     container_name: ${COMPOSE_PROJECT_NAME}_pgadmin
     image: dpage/pgadmin4:latest
     user: root

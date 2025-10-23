@@ -13,23 +13,23 @@ Questo ecosistema è preconfigurato per supportare due metodi alternativi: utili
 
 Procedere come segue:
 
-1. Aprire una shell bash all'interno container `its_dev` tramite il comando:
-```
-docker exec -it its_dev bash
-```
+1. Aprire una shell `bash` all'interno container `its_dev` tramite il comando:
+    ```
+    docker exec -it its_dev bash
+    ```
 
-Si osservi come il prompt cambierà in qualcosa del tipo:
-```
-root@a3eb9e517663:/home#
-```
+    Si osservi come il prompt cambierà in qualcosa del tipo:
+    ```
+    root@a3eb9e517663:/home#
+    ```
 
-indicando che ci si trova nel container di id `a3eb9e517663` e si sta impersonando l'utente `root`.
+    indicando che ci si trova nel container di id `a3eb9e517663` e si sta impersonando l'utente `root`.
 
 
-2. All'interno della shell del container, creare (se non esiste già) la directory `/subfolder1/.../subfolderN/` tramite il comando:
-```
-mkdir -p "/home/subfolder1/.../subfolderN/"
-```
+2. All'interno della shell del container, creare (se non esiste già) la directory `/home/subfolder1/.../subfolderN/` tramite il comando:
+    ```
+    mkdir -p "/home/subfolder1/.../subfolderN/"
+    ```
 
 3. Entrare nella directory appena creata:
     ```
@@ -42,12 +42,12 @@ Sebbene, in linea di principio si possa scegliere qualunque intero tra 1 e 65535
     **Nota**: Per utilizzare valori di porta fuori da questo intervallo, è necessario modificare la variabile `NODEJS_EXPOSED_PORTS` nel file `sw_development/.env`.
 
 
-5. Scegliere se creare l'app tramite il comando ufficiale di React o tramite la libreria esterna Vite.dev e procedere con le relative istruzioni di seguito.
+5. Decidere se creare l'app tramite il comando ufficiale di React o tramite la libreria esterna Vite.dev e procedere con le relative istruzioni di seguito.
 
 
 ### Creazione app tramite il comando ufficiale di React ###
 
-Questo approccio, sebbene sia quello ufficiale di React, comportà attese più lunghe nella costruzione e nel lancio dell'app.
+Questo approccio, sebbene sia quello ufficiale di React, comporta attese più lunghe nella costruzione e nel lancio dell'app.
 
 
 6. Eseguire il seguente comando, fornito dal framework React, per creare il codice di base di una nuova app:
@@ -60,13 +60,9 @@ Questo approccio, sebbene sia quello ufficiale di React, comportà attese più l
      * `XXXX` è la porta scelta, ad es., `3000`
      * `"nome-app"` è il nome scelto per l'app, ad es. `mia-app-react`
 
-Il codice iniziale dell'app sarà salvato nella sottodirectory `nome-app` della directory `/home/subfolder1/.../subfolderN/`. 
-Il webserver dell'app sarà configurato per essere in ascolto sulla porta `XXXX` assegnata alla variabile d'ambiente `PORT`.
+    Il codice iniziale dell'app sarà salvato nella sottodirectory `nome-app` della directory `/home/subfolder1/.../subfolderN/`. 
+    Il webserver dell'app sarà configurato per essere in ascolto sulla porta `XXXX` assegnata alla variabile d'ambiente `PORT`.
 
-7. Uscire dalla shell `bash` del container con il comando
-```
-exit
-```
 
 
 ### Creazione app tramite la libreria Vite.dev ###
@@ -85,15 +81,11 @@ Procedere come segue:
 
 7. Al termine dell'esecuzione, eseguire:
     ```
-    cd "nome-app" # sostituendo "nome-app" con il nome scelto per l'app
+    cd "nome-app"
     npm install
     ```
-    per finalizzare l'installazione dell'app.
+    (sostituendo `"nome-app"` con il nome scelto per l'app) per finalizzare l'installazione dell'app.
 
-8. Uscire dalla shell `bash` del container con il comando
-```
-exit
-```
 
 Si noti come, utilizzando Vite.dev, la porta del webserver non viene definita al momento della creazione dell'app, ma al momento del suo avvio, come mostrato di seguito.
 
@@ -104,14 +96,14 @@ Il webserver dell'app presente nella directory
 ```
 ${USER_BASE_FOLDER}/subfolder1/.../subfolderN/nome-app/
 ```
-della macchina host potrà essere lanciato tramite uno dei seguenti due comandi, in base alla procedura scelta per la creazione:
+della macchina host potrà essere lanciato come segue:
 
-  * Se l'app è stata installata con il comando ufficiale di React:
-    ```
-    docker exec -it -w /home/subfolder1/.../subfolderN/nome-app its_dev bash -ilc "npm start"
-    ```
+1. Aprire, se necessario, una shell `bash` del container (v. sopra)
+2. Entrare nella directory dell'app con: `cd /home/subfolder1/.../subfolderN/nome-app`
 
-    Il comando esegue l'eseguibile `npm` (Node Package Manager) con l'opzione `start` all'interno del container, nella directory dell'app.
+3. Avviare l'app con uno dei comandi seguenti, in base a come è stata installata.
+  * Se l'app è stata installata con il comando ufficiale di React, eseguire: 
+    `npm start`
 
     Il risultato sarà qualcosa del tipo:
     ```
@@ -132,12 +124,8 @@ della macchina host potrà essere lanciato tramite uno dei seguenti due comandi,
 
     Si noti che il comando precedente non restituisce il prompt dei comandi. 
 
-
-
   * Se invece l'app è stata installata tramite Vite.dev:
-    ```
-    docker exec -it -w /home/subfolder1/.../subfolderN/nome-app its_dev bash -ilc "npm run dev -- --host --port XXXX"
-    ```
+    `npm run dev -- --host --port XXXX`
 
     dove:
     * `XXXX` è la porta scelta, ad es., `3000`
@@ -155,7 +143,7 @@ In ogni caso, il sistema stampa in output l'indirizzo dove puntare il browser pe
 
 ## Spegnimento del webserver ##
 
-Dal terminale che mostra il webserver in esecuzione: 
+Dalla shell `bash` del container che mostra il webserver in esecuzione: 
 
 * Se l'app è stata installata con il comando ufficiale di React:
   * premere `control`-`c`
@@ -164,6 +152,12 @@ Dal terminale che mostra il webserver in esecuzione:
   * digitare `q` e poi premere il tasto `invio`
 
 per spegnere il webserver.
+
+Il controllo torna alla shell `bash` del container. 
+
+
+## Chiusura della shell `bash` del container ##
+Eseguire il comando `exit`.
 
 ---------
 

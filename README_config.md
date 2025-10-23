@@ -17,17 +17,14 @@ Permette di definire le seguenti variabili d'ambiente, che sono utilizzate dall'
 
 * `CONFIG_PATH`: il nome della sottodirectory di `USER_BASE_FOLDER` dove è presente il resto della configurazione. Il valore di default è `config`.
 
-* `PYTHONPATH`: il percorso assoluto della o delle directory da inserire come libreria Python nell'ambiente di sviluppo. 
-Il valore di default `/home` fa in modo che Python possa accedere a librerie presenti nella directory base. È possibile indicare più percorsi, separandoli da `:`. Si veda la documentazione di Python per i dettagli.
-
 
 ## Personalizzazione della directory `${USER_BASE_FOLDER}/${CONFIG_PATH}`
 
 Questa directory contiene uno o più script bash che vengono eseguiti alla creazione dei diversi container.
 
-In particolare, lo script `XXX.sh` sarà eseguito durante la creazione del container `its_XXX`.
+In particolare, lo script `main.sh` nella sottodirectory `XXX` sarà eseguito durante la creazione del container `its_XXX`.
 
-Questi script si prestano ad essere modificato dall'utente per installare, nei diversi container, ulteriore software.
+Questi script si prestano ad essere modificati dall'utente per installare, nei diversi container, ulteriore software.
 
    
 ---------

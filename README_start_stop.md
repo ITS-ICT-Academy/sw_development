@@ -26,8 +26,7 @@ Verranno avviati i seguenti container:
 ### its_dev: ambiente per lo sviluppo --> [Guida per l'uso](dev/README.md) ###
 L'ambiente di sviluppo è già configurato per poter eseguire:
 
-* Codice Python. L'interprete Python viene installato con le librerie (e versioni) elencate nel file `dev/python_requirements.txt`.
-
+* Codice Python
 * Codice Javascript per applicazioni web utilizzando NodeJS & ReactJS.
 
 L'ambiente di sviluppo è estendibile dall'utente.
@@ -49,8 +48,8 @@ Il sistema web PGAdmin per la gestione di servizi PostgreSQL, nella versione rip
 ```
 CONTAINER ID   IMAGE                   COMMAND                  CREATED          STATUS          PORTS                           NAMES
 eb68b1524613   dpage/pgadmin4:latest   "/entrypoint.sh"         47 seconds ago   Up 47 seconds   443/tcp, 0.0.0.0:8000->80/tcp   its_pgadmin
-f08940bf14c2   its-postgresql          "docker-entrypoint.s…"   47 seconds ago   Up 47 seconds   0.0.0.0:5432->5432/tcp          its_postgresql
-4bfb833bc083   its-dev                 "python3"                47 seconds ago   Up 47 seconds                                   its_dev
+f08940bf14c2   its_postgresql          "docker-entrypoint.s…"   47 seconds ago   Up 47 seconds   0.0.0.0:5432->5432/tcp          its_postgresql
+4bfb833bc083   its_dev                 "python3"                47 seconds ago   Up 47 seconds                                   its_dev
 ```
 
 
