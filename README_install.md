@@ -39,7 +39,9 @@ Per eseguirli, lanciare i seguenti comandi:
 
 2. Lanciare il test per Python e connessione a PostgreSQL:
 	```
-	docker exec -it -w /home/simple_test its_dev python test.py
+	docker exec -it its_dev bash
+	cd simple_test
+	python test.py
 	```
 
 3. [Terminare i container](README_start_stop.md)
