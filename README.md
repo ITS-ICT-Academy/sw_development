@@ -9,8 +9,8 @@ Questa repository contiene un ecosistema di container Docker per supportare le a
 
 # Sommario dei contenuti #
 
-* [Prima installazione e configurazione iniziale](README_install.md)
-* [Personalizzazione della configurazione](README_config.md)
+* [Prima installazione](README_install.md)
+* [Configurazione](README_config.md)
 * [Aggiornamento](README_update.md)
 * [Avviare e terminare i container](README_start_stop.md)
 

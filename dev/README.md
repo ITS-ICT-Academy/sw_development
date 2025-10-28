@@ -5,7 +5,7 @@ Il container `its_dev` è basato su una distribuzione linux (si veda il relativo
 
 ### Lo script `${USER_BASE_FOLDER}/${CONFIG_PATH}/dev/main.sh` ###
 
-Come spiegato nella sezione [Personalizzazione della configurazione](../README_config.md), lo script `main.sh` presente nella directory `${USER_BASE_FOLDER}/${CONFIG_PATH}/dev` viene eseguito alla creazione del container `its_dev`.
+Come spiegato nella sezione [Configurazione](../README_config.md), lo script `main.sh` presente nella directory `${USER_BASE_FOLDER}/${CONFIG_PATH}/dev` viene eseguito alla creazione del container `its_dev`.
 
 Nella sua versione di default, si occupa di eseguire gli ulteriori script `.sh` il cui nome inizia per un numero, nel loro ordine (`01-base-packages.sh`, `02-python.sh`, etc.)
 A loro volta, ognuno di questi script installa e configura un unico tool, ovvero:
