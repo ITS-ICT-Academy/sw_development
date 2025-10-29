@@ -41,8 +41,12 @@ La propria directory base dovrebbe apparire così:
 
 ```
 config/
-	dev.sh
-	python_requirements.txt
+	dev/
+		01-base-packages.sh
+		02-python.sh
+		...
+		main.sh
+		python_requirements.txt
 python.1/
 	esercizio_1.1/
 		main.py
