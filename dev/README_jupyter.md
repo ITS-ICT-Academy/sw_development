@@ -88,7 +88,7 @@ Dovremo operare le seguenti personalizzazioni:
 
 3. Definire la porta del container sulla quale il webserver di Jupyter è in ascolto per ricevere connessioni. Tale porta non deve essere già utilizzata da un altro servizio che esegue nel container `its_dev`, e deve anche essere esposta dall'ecosistema Docker alla macchina host, altrimenti non sarebbe accessibile da quest'ultima.
 
-	L'ecosistema Docker (si veda il file `.env` ottenuto duplicando `.env_example`), definisce un intervallo di porte chiamato `AUTO_MAPPED_PORTS` (dalla 10000 alla 10999).
+	L'ecosistema Docker (si veda il file `.env` ottenuto duplicando `.env_example`), definisce un intervallo di porte chiamato `AUTO_MAPPED_PORTS` (dalla 10000 alla 10099).
 	Tali porte vengono automaticamente esposte all host.
 
 	Per Jupyter, dobbiamo scegliere quindi una porta (non utilizzata né nel container né nell host) in quell'intervallo. Decidiamo di usare la porta `10000`.
