@@ -24,6 +24,8 @@ A loro volta, ognuno di questi script installa e configura un unico tool, ovvero
 L'ambiente di sviluppo può essere esteso dall'utente modificando gli script `bash` presenti nella directory `${USER_BASE_FOLDER}/${CONFIG_PATH}/dev/` o aggiungendone di nuovi. 
 È quindi possibile installare interpreti o compilatori per ulteriori linguaggi di programmazione, ed altri framework e librerie.
 
+Come esempio, [mostriamo la possibile installazione di JupyterLab](./README_jupyter.md), un ambiente per la programmazione interattiva. La particolarità dell'ambiente è che prevede l'installazione di un server web all'interno del container, che dovrà essere accessibile dal sistema operativo host.
+
 
 
 ## Guide dettagliate ##

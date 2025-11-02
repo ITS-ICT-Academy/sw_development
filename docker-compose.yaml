@@ -17,6 +17,7 @@ services:
     restart: unless-stopped
     ports:
       - ${NODEJS_EXPOSED_PORTS}:${NODEJS_EXPOSED_PORTS}
+      - ${AUTO_MAPPED_PORTS}:${AUTO_MAPPED_PORTS}
 
   postgresql:
     image: ${COMPOSE_PROJECT_NAME}_postgresql

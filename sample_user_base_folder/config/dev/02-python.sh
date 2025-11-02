@@ -45,4 +45,3 @@ popd
 PYTHON_REQUIREMENTS="./python_requirements.txt"
 echo "Installing python packages from file $(realpath "${PYTHON_REQUIREMENTS}")"
 pip install -r "${PYTHON_REQUIREMENTS}"
-

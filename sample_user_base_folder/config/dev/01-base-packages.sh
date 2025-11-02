@@ -21,4 +21,5 @@ apt install -y --no-install-recommends \
 	libxmlsec1-dev \
 	libffi-dev \
 	liblzma-dev \
-	git  
+	git \
+	nano
