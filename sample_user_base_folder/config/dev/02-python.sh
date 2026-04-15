@@ -31,7 +31,7 @@ export PATH="${PYENV_ROOT}/shims:${PYENV_ROOT}/bin:${PATH}"
 
 # Install, via pyenv, the specific Python version stated in variable PYTHON_VERSION 
 # and set it as global default
-export PYTHON_VERSION=3.13.5
+export PYTHON_VERSION=3.14.3
 pyenv install ${PYTHON_VERSION}
 pyenv global ${PYTHON_VERSION}
 
