@@ -70,7 +70,7 @@ Per effettuare il test:
     
     (il comando non restituisce subito il prompt; per spegnere il backend, premere CTRL+C)
 
-3) In una shell bash della macchian host (la VM linux), eseguire:
+3) In una shell bash della macchina host (la VM linux), eseguire:
 
    curl -v "http://127.0.0.1:11000/catalogo/libro/1"
 
