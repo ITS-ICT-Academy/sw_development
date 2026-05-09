@@ -7,7 +7,7 @@
  	Aprire il terminale in una directory all'interno della quale si vuole clonare il repository, ed eseguire il comando:
 
 	```
-	git clone --branch 2024-2026 https://github.com/ITS-ICT-Academy/sw_development.git 
+	git clone https://github.com/ITS-ICT-Academy/sw_development.git 
 	```
 
 	Il repository sarà clonato in una sottodirectory `sw_development` della directory scelta.
