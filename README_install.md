@@ -18,7 +18,7 @@
 	Una volta salvate la propria chiave pubblica `SSH`, procedere come sopra, ma utilizzando il comando seguente:
 
 	```
-	git clone --branch 2024-2026 git@github.com:ITS-ICT-Academy/sw_development.git 
+	git clone git@github.com:ITS-ICT-Academy/sw_development.git 
 	```
 
 	
